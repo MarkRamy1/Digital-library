@@ -1,0 +1,119 @@
+/* Scrollbar design */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* This fits the website to the edges */
+body {
+    width: auto;
+    background-color: #C8C6AF;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body,ul {
+    margin: 0;
+}
+
+/* Navigation bar styling */
+header {
+    padding: 10px;
+    background-color: #95A78D;
+}
+
+nav {
+    text-align: center;
+}
+
+ul {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+li {
+    display: inline-block;
+    margin: 20px;
+    font-size: 30px;
+    font-family: cursive;
+    font-weight: bold;
+    color: #090809;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#home:hover, #books:hover, #feedback:hover, #contact:hover {
+    scale: 1.125;
+    transition: 0.5s;
+    color: #565254;
+    text-shadow: #090809 1px -3px 5px;
+}
+
+/* Serach box styling */
+.search {
+    margin: 0 0 0 auto;
+}
+
+.label {
+    margin: 20px 20px 25px;
+    cursor: default;
+}
+
+.search-box {
+    background-color: white;
+    width: auto;
+    height: 35px;
+    padding: 10px;
+    border: 2px solid gray;
+    border-radius: 50px;
+}
+
+/* Introduction section styling */
+.intro {
+    text-align: center;
+    cursor: default;
+}
+
+h1 {
+    font-size: 50px;
+    margin: 35px 0 0;
+    cursor: default;
+}
+
+/* Home page books */
+.curriculum, .horror, .romantic {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h2 {
+    margin: 200px 0 50px 0;
+    text-align: center;
+    cursor: default;
+}
+
+img {
+    width: 200px;
+    background-color: #D7D0C8;
+    border: #090809 1px solid;
+    border-radius: 5px;
+    box-shadow: #090809 0 0px 15px 1px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+img:hover {
+    scale: 1.05;
+    transition: 0.25s;
+}
