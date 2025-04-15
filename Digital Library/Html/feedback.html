@@ -6,6 +6,7 @@
         <title>Digital Library | Feedback</title>
         <link rel="stylesheet" href="../Styling/main.css">
         <link rel="stylesheet" href="../Styling/feedback.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     </head>
     <body>
         <header>
@@ -17,8 +18,9 @@
                     <li onclick="books()" id="books">Books</li>
                     <li onclick="feedback()" id="feedback">Feedback</li>
                     <li onclick="contact()" id="contact">Contact Us</li>
+                    <!-- Search box -->
                     <div class="search">
-                        <li>Search</li>
+                        <li class="label">Search</li>
                         <input type="search" class="search-box">
                     </div>
                 </ul>
@@ -27,6 +29,17 @@
         <main>
             <section>
                 <h1>Feedback</h1>
+                <div class="feedback">
+                    <h2>Send Feedback</h2>
+                    <textarea id="textarea"></textarea>
+                    <div class="submit">
+                        <button onclick="submit()" id="submit">
+                            <span class="transition"></span>
+                            <span class="gradient"></span>
+                            <span class="label">Submit</span>
+                        </button>
+                    </div>
+                </div>
             </section>
         </main>
         <script src="/Scripting/script.js"></script>

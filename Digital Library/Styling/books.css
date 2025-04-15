@@ -10,7 +10,10 @@ h1 {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    padding: 20px;
     margin: 10px 20px;
+    border: 5px dashed #50752c;
+    border-radius: 25px;
 }
 
 h2 {

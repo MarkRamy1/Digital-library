@@ -1,3 +1,106 @@
 h1 {
     text-align: center;
 }
+
+h2, textarea {
+    margin: 20px;
+}
+
+.feedback {
+    background-color: #c4bbb2;
+    border: 2px solid #42722d;
+    border-radius: 25px;
+    margin: 25px auto;
+    width: 65%;
+    height: 600px;
+    text-align: center;
+}
+
+textarea {
+    outline: none;
+    resize: none;
+    border: 3px solid #90b680;
+    border-radius: 10px;
+    width: 90%;
+    height: 40%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #D7D0C8;
+}
+
+textarea::placeholder {
+    font-size: 18px;
+    font-weight: bolder;
+    color: #8b8b8b;
+}
+
+.fa-regular {
+    font-size: 35px;
+    background-color: #D7D0C8;
+    border: 2px solid #90b680;
+    border-radius: 10px;
+    padding: 20px 50px;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    margin: 120px auto;
+}
+
+button {
+    font-size: 25px;
+    padding: 1em 2.7em;
+    font-weight: bold;
+    background: #D7D0C8;
+    color: black;
+    border: 3px solid #90b680;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.6em;
+    padding: 30px 40%;
+    cursor: pointer;
+}
+
+.gradient {
+    position: absolute;
+    width: 100%;
+    height: 110%;
+    left: 0;
+    top: 0;
+    border-radius: 0.6em;
+    margin-top: -0.25em;
+    background-image: linear-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
+    );
+}
+
+button .label {
+    position: relative;
+    top: -1px;
+    cursor: pointer;
+}
+
+.transition {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    transition-duration: 500ms;
+    background-color: #557a45;
+    border-radius: 9999px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button:hover .transition {
+    width: 110%;
+    height: 500%;
+}
+
+button:active {
+    transform: scale(0.97);
+}
