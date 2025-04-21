@@ -42,6 +42,19 @@ ul {
     flex-wrap: wrap;
 }
 
+.logo {
+    width: 90px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.logo:hover {
+    scale: 1;
+    box-shadow: none;
+}
+
 li {
     display: inline-block;
     margin: 20px;
@@ -68,15 +81,35 @@ li {
 .label {
     margin: 20px 20px 25px;
     cursor: default;
+    transition: 0.3s;
+}
+
+.label:hover {
+    border-color: #007bff;
+    text-shadow: 0 0 5px rgba(0, 123, 255);
+    transition: 0.3s;
 }
 
 .search-box {
     background-color: white;
     width: auto;
+    outline: none;
     height: 35px;
     padding: 10px;
     border: 2px solid gray;
     border-radius: 50px;
+    transition: 0.3s;
+}
+
+.search-box:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    transition: 0.3s;
+}
+
+.search-box::placeholder {
+    color: #999;
+    font-style: italic;
 }
 
 /* Introduction section styling */
