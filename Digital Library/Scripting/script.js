@@ -1,17 +1,17 @@
 function home() {
-    window.location = "../index.html"   
+    window.location = "/index.html"   
 }
 
 function books() {
-    window.location = "../Html/books.html"
+    window.location = "/Digital Library/Html/books.html"
 }
 
 function feedback() {
-    window.location = "../Html/feedback.html"
+    window.location = "/Digital Library/Html/feedback.html"
 }
 
 function contact() {
-    window.location = "../Html/contact.html"
+    window.location = "/Digital Library/Html/contact.html"
 }
 
 function curriculum() {
