@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library | Home</title>
+    <style>
+        /* Main CSS (from main.css) */
+        /* Scrollbar design */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+
+        /* This fits the website to the edges */
+        body {
+            width: auto;
+            background-color: #C8C6AF;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        body,ul {
+            margin: 0;
+        }
+
+        /* Navigation bar styling */
+        header {
+            padding: 10px;
+            background-color: #95A78D;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        ul {
+            display: flex;
+            justify-content: left;
+            flex-wrap: wrap;
+        }
+
+        li {
+            display: inline-block;
+            margin: 20px;
+            font-size: 30px;
+            font-family: cursive;
+            font-weight: bold;
+            color: #090809;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        #home:hover, #books:hover, #feedback:hover, #contact:hover {
+            scale: 1.125;
+            transition: 0.5s;
+            color: #565254;
+            text-shadow: #090809 1px -3px 5px;
+        }
+
+        /* Serach box styling */
+        .search {
+            margin: 0 0 0 auto;
+        }
+
+        .label {
+            margin: 20px 20px 25px;
+            cursor: default;
+        }
+
+        .search-box {
+            background-color: white;
+            width: auto;
+            height: 35px;
+            padding: 10px;
+            border: 2px solid gray;
+            border-radius: 50px;
+        }
+
+        /* Introduction section styling */
+        .intro {
+            text-align: center;
+            cursor: default;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin: 35px 0 0;
+            cursor: default;
+        }
+
+        /* Home page books */
+        .curriculum, .horror, .romantic {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        h2 {
+            margin: 200px 0 50px 0;
+            text-align: center;
+            cursor: default;
+        }
+
+        img {
+            width: 200px;
+            border: #090809 1px solid;
+            border-radius: 5px;
+            box-shadow: #090809 0 0 15px 0px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        img:hover {
+            scale: 1.05;
+            box-shadow: #090809 0 0 5px 0px;
+            transition: 0.25s;
+        }
+
+        /* Books CSS (from books.css) */
+        /* Title Styling */
+        .books-page h1 {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        /* Books Section Styling */
+        .books {
+            background-color: #D7D0C8;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            padding: 20px;
+            margin: 10px 20px;
+            border: 5px dashed #50752c;
+            border-radius: 25px;
+        }
+
+        .books h2 {
+            background-color: #adadad;
+            border: 3px solid #95A78D;
+            border-radius: 10px;
+            width: 130px;
+            margin: 10px 20px;
+            padding: 40px 70px;
+            box-shadow: #090809 5px 5px 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .books h2:hover {
+            transform: translate(2px, 5px);
+            box-shadow: #090809 2px 2px 10px;
+            transition: 0.25s;
+        }
+
+        /* Feedback CSS (from feedback.css) */
+        .feedback-page h1 {
+            text-align: center;
+        }
+
+        .feedback-page h2, .feedback-page textarea {
+            margin: 20px;
+        }
+
+        .feedback {
+            background-color: #c4bbb2;
+            border: 2px solid #42722d;
+            border-radius: 25px;
+            margin: 25px auto;
+            width: 65%;
+            height: 600px;
+            text-align: center;
+        }
+
+        .feedback textarea {
+            outline: none;
+            resize: none;
+            border: 3px solid #90b680;
+            border-radius: 10px;
+            width: 90%;
+            height: 40%;
+            padding: 10px;
+            font-size: 20px;
+            background-color: #D7D0C8;
+        }
+
+        .feedback textarea::placeholder {
+            font-size: 18px;
+            font-weight: bolder;
+            color: #8b8b8b;
+        }
+
+        .fa-regular {
+            font-size: 35px;
+            background-color: #D7D0C8;
+            border: 2px solid #90b680;
+            border-radius: 10px;
+            padding: 20px 50px;
+        }
+
+        .submit {
+            display: flex;
+            justify-content: center;
+            margin: 120px auto;
+        }
+
+        button {
+            font-size: 25px;
+            padding: 1em 2.7em;
+            font-weight: bold;
+            background: #D7D0C8;
+            color: black;
+            border: 3px solid #90b680;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.6em;
+            padding: 30px 40%;
+            cursor: pointer;
+        }
+
+        .gradient {
+            position: absolute;
+            width: 100%;
+            height: 110%;
+            left: 0;
+            top: 0;
+            border-radius: 0.6em;
+            margin-top: -0.25em;
+            background-image: linear-gradient(
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.3)
+            );
+        }
+
+        button .label {
+            position: relative;
+            top: -1px;
+            cursor: pointer;
+        }
+
+        .transition {
+            transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            transition-duration: 500ms;
+            background-color: #557a45;
+            border-radius: 9999px;
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        button:hover .transition {
+            width: 110%;
+            height: 500%;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        /* Contact CSS (from contact.css) */
+        .contact-page h1 {
+            text-align: center;
+        }
+
+        /* Hide all pages by default */
+        #home-page, #books-page, #feedback-page, #contact-page {
+            display: none;
+        }
+
+        /* Show home page by default */
+        #home-page {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Navigation bar -->
+        <nav>
+            <!-- Container for the navigation bar elements -->
+            <div class="container">
+            <ul>
+                <!-- Navigation bar elements -->
+                <li onclick="showPage('home-page')" id="home">Home</li>
+                <li onclick="showPage('books-page')" id="books">Books</li>
+                <li onclick="showPage('feedback-page')" id="feedback">Feedback</li>
+                <li onclick="showPage('contact-page')" id="contact">Contact Us</li>
+                <!-- Search box -->
+                <div class="search">
+                    <li class="label">Search</li>
+                    <input type="search" class="search-box">
+                </div>
+            </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <main id="home-page">
+        <!-- Introduction section -->
+        <section class="intro">
+            <h1>Digital Library</h1>
+            <p>This is a digital library that helps us in finding books easily (Our school's curriculum included).</p>
+        </section>
+        <section class="home-books">
+            <h2>Curriculum Books</h2>
+            <div class="curriculum">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+            </div>
+            <h2>Horror Books</h2>
+            <div class="horror">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+            </div>
+            <h2>Romantic Books</h2>
+            <div class="romantic">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3" alt="">
+            </div>
+        </section>
+    </main>
+
+    <!-- Books Page -->
+    <main id="books-page" class="books-page">
+        <section>
+            <h1>Books Available</h1>
+            <div class="books">
+                <h2 onclick="showGenre('curriculum')" id="curriculum">Curriculum Books</h2>
+                <h2 onclick="showGenre('horror')" id="horror">Horror Books</h2>
+                <h2 onclick="showGenre('romantic')" id="romantic">Romantic Books</h2>
+                <h2 onclick="showGenre('comic')" id="comic">Comic Books</h2>
+                <h2 onclick="showGenre('adventure')" id="adventure">Adventure Books</h2>
+                <h2 onclick="showGenre('mystery')" id="mystery">Mystery Books</h2>
+                <h2 onclick="showGenre('thriller')" id="thriller">Thriller Books</h2>
+                <h2 onclick="showGenre('fiction')" id="fiction">Fiction Books</h2>
+                <h2 onclick="showGenre('philosophical')" id="philosophical">Philosophical Books</h2>
+            </div>
+        </section>
+    </main>
+
+    <!-- Feedback Page -->
+    <main id="feedback-page" class="feedback-page">
+        <section>
+            <h1>Feedback</h1>
+            <div class="feedback">
+                <h2>Send Feedback</h2>
+                <textarea id="textarea"></textarea>
+                <div class="submit">
+                    <button onclick="submit()" id="submit">
+                        <span class="transition"></span>
+                        <span class="gradient"></span>
+                        <span class="label">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Page -->
+    <main id="contact-page" class="contact-page">
+        <section>
+            <h1>Contact Us</h1>
+        </section>
+    </main>
+
+    <!-- Genre Pages (Adventure, Comic, Curriculum, Fiction, Horror, Mystery, Philosophical, Romantic, Thriller) -->
+    <div id="genre-pages" style="display: none;">
+        <!-- These would be shown when a genre is clicked -->
+    </div>
+
+    <script>
+        // Combined JavaScript from script.js and books.js
+        const textarea = document.getElementById("textarea");
+        const placeholder = "Your feedback...";
+        const Submit = document.getElementById("submit");
+        let letter = 0;
+
+        function placeholderEffect() {
+            if (textarea) {
+                textarea.placeholder = placeholder.substring(0, letter);
+                letter++;
+                if (letter > placeholder.length) {
+                    letter = 0;
+                    placeholderTyping = setTimeout(placeholderEffect, 1000);
+                } else {
+                    placeholderTyping = setTimeout(placeholderEffect, 150);
+                }
+            }
+        }
+
+        function submit() {
+            clearTimeout(placeholderTyping);
+            textarea.value = "";
+            textarea.placeholder = "Thank you for your feedback!";
+        }
+
+        // Initialize placeholder effect if on feedback page
+        if (document.getElementById("textarea")) {
+            placeholderEffect();
+        }
+
+        // Navigation functions
+        function showPage(pageId) {
+            // Hide all pages
+            document.getElementById("home-page").style.display = "none";
+            document.getElementById("books-page").style.display = "none";
+            document.getElementById("feedback-page").style.display = "none";
+            document.getElementById("contact-page").style.display = "none";
+            
+            // Show the selected page
+            document.getElementById(pageId).style.display = "block";
+            
+            // Initialize placeholder effect if showing feedback page
+            if (pageId === "feedback-page" && document.getElementById("textarea")) {
+                letter = 0;
+                placeholderEffect();
+            }
+        }
+
+        // Genre navigation
+        function showGenre(genre) {
+            // Hide all pages
+            document.getElementById("home-page").style.display = "none";
+            document.getElementById("books-page").style.display = "none";
+            document.getElementById("feedback-page").style.display = "none";
+            document.getElementById("contact-page").style.display = "none";
+            
+            // Show genre-specific content
+            let genreContent = document.createElement('div');
+            genreContent.id = "genre-content";
+            genreContent.style.padding = "20px";
+            genreContent.style.margin = "20px";
+            genreContent.style.backgroundColor = "#D7D0C8";
+            genreContent.style.border = "3px solid #95A78D";
+            genreContent.style.borderRadius = "15px";
+            
+            // Create back button
+            let backButton = document.createElement('button');
+            backButton.textContent = "Back to Books";
+            backButton.style.padding = "10px 20px";
+            backButton.style.margin = "20px 0";
+            backButton.style.backgroundColor = "#95A78D";
+            backButton.style.border = "none";
+            backButton.style.borderRadius = "5px";
+            backButton.style.cursor = "pointer";
+            backButton.style.fontSize = "18px";
+            backButton.onclick = function() {
+                document.body.removeChild(genreContent);
+                showPage("books-page");
+            };
+            
+            // Create title
+            let title = document.createElement('h1');
+            title.textContent = genre.charAt(0).toUpperCase() + genre.slice(1) + " Books";
+            title.style.textAlign = "center";
+            
+            // Create book display
+            let booksContainer = document.createElement('div');
+            booksContainer.style.display = "flex";
+            booksContainer.style.flexWrap = "wrap";
+            booksContainer.style.justifyContent = "space-around";
+            booksContainer.style.marginTop = "30px";
+            
+            // Add sample books (using the same image)
+            for (let i = 0; i < 5; i++) {
+                let book = document.createElement('div');
+                book.style.margin = "15px";
+                book.style.textAlign = "center";
+                
+                let img = document.createElement('img');
+                img.src = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAMdAlcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3";
+                img.alt = "Book " + (i+1);
+                img.style.width = "150px";
+                img.style.height = "auto";
+                img.style.border = "#090809 1px solid";
+                img.style.borderRadius = "5px";
+                img.style.boxShadow = "#090809 0 0 15px 0px";
+                
+                let bookTitle = document.createElement('h3');
+                bookTitle.textContent = genre.charAt(0).toUpperCase() + genre.slice(1) + " Book " + (i+1);
+                bookTitle.style.marginTop = "10px";
+                
+                book.appendChild(img);
+                book.appendChild(bookTitle);
+                booksContainer.appendChild(book);
+            }
+            
+            // Assemble the content
+            genreContent.appendChild(backButton);
+            genreContent.appendChild(title);
+            genreContent.appendChild(booksContainer);
+            
+            // Add to body
+            document.body.appendChild(genreContent);
+        }
+
+        // Show home page by default
+        document.addEventListener("DOMContentLoaded", function() {
+            showPage("home-page");
+        });
+    </script>
+</body>
+</html>
