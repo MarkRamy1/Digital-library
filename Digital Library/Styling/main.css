@@ -1,3 +1,8 @@
+/* Root Items */
+:root {
+    --primaryBack : #D7D0C8;
+}
+
 /* Scrollbar design */
 ::-webkit-scrollbar {
     width: 10px;
@@ -85,7 +90,6 @@ li {
 }
 
 .label:hover {
-    border-color: #007bff;
     text-shadow: 0 0 5px rgba(0, 123, 255);
     transition: 0.3s;
 }
@@ -140,13 +144,13 @@ img {
     width: 200px;
     border: #090809 1px solid;
     border-radius: 5px;
-    box-shadow: #090809 0 0 15px 0px;
+    box-shadow: #090809 0 0 15px 0;
     cursor: pointer;
     transition: 0.25s;
 }
 
 img:hover {
     scale: 1.05;
-    box-shadow: #090809 0 0 5px 0px;
+    box-shadow: #090809 0 0 5px 0;
     transition: 0.25s;
 }

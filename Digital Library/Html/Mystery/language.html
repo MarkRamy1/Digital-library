@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Digital Library | Curriculum Books</title>
+        <title>Digital Library</title>
         <link rel="shortcut icon" href="/frames/icon.ico" type="image/x-icon">
         <link rel="stylesheet" href="../../Styling/main.css">
+        <link rel="stylesheet" href="../../Styling/books.css">
     </head>
     <body>
         <header>
@@ -29,6 +30,16 @@
                 </div>
             </nav>
         </header>
+        <main>
+            <section>
+                <h1 class="headText">Pick a language</h1>
+                <div class="languagesContainer">
+                    <div class="language" onclick="english()">English</div>
+                    <div class="language" onclick="arabic()">Arabic</div>
+                </div>
+            </section>
+        </main>
+        <script src="/Html/Mystery/language.js"></script>
         <script src="../../Scripting/books.js"></script>
     </body>
 </html>

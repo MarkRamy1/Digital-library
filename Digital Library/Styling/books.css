@@ -1,3 +1,11 @@
+/* Root Items */
+:root {
+    --primaryBack : #D7D0C8;
+    --secondaryBack: #adadad;
+    --primaryBorder: #50752c;
+    --secondaryBorder: #95A78D;
+}
+
 /* Title Styling */
 h1 {
     text-align: center;
@@ -29,6 +37,38 @@ h2 {
 }
 
 h2:hover {
+    transform: translate(2px, 5px);
+    box-shadow: #090809 2px 2px 10px;
+    transition: 0.25s;
+}
+
+/* Language Picker Styling */
+.headText {
+    text-align: center;
+}
+
+.languagesContainer {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    background-color: var(--primaryBack);
+    border: 5px dashed var(--primaryBorder);
+    border-radius: 25px;
+    width: 70%;
+}
+
+.language {
+    margin: 50px 50px;
+    padding: 20px;
+    font-size: 50px;
+    border: 3px solid var(--secondaryBorder);
+    border-radius: 10px;
+    box-shadow: #090809 5px 5px 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.language:hover {
     transform: translate(2px, 5px);
     box-shadow: #090809 2px 2px 10px;
     transition: 0.25s;

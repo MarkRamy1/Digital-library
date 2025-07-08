@@ -7,6 +7,7 @@ const placeholder = "Type your problem or suggestion here...";
 let letter = 0;
 let firstClick = true
 
+// Function to style the input
 username.addEventListener("focus", function () {
     setTimeout(function showPlaceholder() {
         username.placeholder = "Your name";
@@ -19,6 +20,7 @@ username.addEventListener("blur", function () {
     }, 150)
 })
 
+// Function to submit the name
 function submitName(name) {
     name = username.value;
     if (name) {
@@ -27,10 +29,11 @@ function submitName(name) {
         problem.style.display = "flex";
         submit.style.top = "10px";
     } else if (name = null || name == "") {
-        question.innerHTML = `Come one just say type your name...`
+        question.innerHTML = `Come on just type your name...`
     }
 }
 
+// Function to type placeholder sentence letter by letter
 function placeholderEffect() {
     problem.placeholder = placeholder.substring(0, letter);
     letter++;
@@ -42,6 +45,7 @@ function placeholderEffect() {
     }
 }
 
+// Function to submit the problem
 function submitContact() {
     if (firstClick) {
         submitName()
@@ -50,10 +54,10 @@ function submitContact() {
         clearTimeout(placeholderTyping);
         problem.value = "";
         problem.placeholder = "Thank you contact with us again!";
-        setTimeout(function welcomea() {
+        setTimeout(function welcome() {
             letter = 0;
             placeholderEffect();
-        }, 1000)
+        }, 2000)
     }
 }
 
