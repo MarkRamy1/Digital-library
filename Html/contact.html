@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Digital Library | Contact us</title>
+        <link rel="shortcut icon" href="/frames/icon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../Styling/main.css">
+        <link rel="stylesheet" href="../Styling/contact.css">
+    </head>
+    <body>
+        <header>
+            <!-- Navigation bar -->
+            <nav>
+                <ul>
+                    <!-- Navigation bar elements -->
+                    <a href="/index.html"><img src="/frames/logo.png" alt="Web logo" class="logo"></a>
+                    <li onclick="home()" id="home">Home</li>
+                    <li onclick="books()" id="books">Books</li>
+                    <li onclick="feedback()" id="feedback">Feedback</li>
+                    <li onclick="contact()" id="contact">Contact Us</li>
+                    <div class="search">
+                        <li class="label">Search</li>
+                        <input type="search" class="search-box">
+                    </div>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h1>Contact Us</h1>
+                <div class="contact-box">
+                    <div>
+                        <h2>Greetings From WE</h2>
+                    </div>
+                    <div>
+                        <h2>I see you have a problem, don't you?</h2>
+                        <h2>Let Us know!</h2>
+                        <h2 id="question">But first...why not to know your lovely name?</h2>
+                        <div class="form-control" id="input">
+                            <input type="value" required="" id="name">
+                            <label>
+                                <span style="transition-delay:0ms">U</span><span style="transition-delay:50ms">s</span><span style="transition-delay:100ms">e</span><span style="transition-delay:150ms">r</span><span style="transition-delay:200ms">n</span><span style="transition-delay:250ms">a</span><span style="transition-delay:300ms">m</span><span style="transition-delay:350ms">e</span>
+                            </label>
+                        </div>
+                        <textarea name="" id="problem" placeholder=""></textarea>
+                        <button class="submit" id="submit" onclick="submitContact()">
+                            <span class="transition"></span>
+                            <span class="gradient"></span>
+                            <span class="label">Submit</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="/Scripting/script.js"></script>
+        <script src="/Scripting/contact.js"></script>
+    </body>
+</html>
